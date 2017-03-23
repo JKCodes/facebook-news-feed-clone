@@ -20,6 +20,7 @@
 		D83E27351E8416AC00833912 /* FriendRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27341E8416AC00833912 /* FriendRequestController.swift */; };
 		D83E27371E84172F00833912 /* RequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27361E84172F00833912 /* RequestHeader.swift */; };
 		D83E273B1E84178C00833912 /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E273A1E84178C00833912 /* FriendRequestCell.swift */; };
+		D83E273D1E8426D700833912 /* FeedControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E273C1E8426D700833912 /* FeedControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D83E27341E8416AC00833912 /* FriendRequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestController.swift; sourceTree = "<group>"; };
 		D83E27361E84172F00833912 /* RequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
 		D83E273A1E84178C00833912 /* FriendRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestCell.swift; sourceTree = "<group>"; };
+		D83E273C1E8426D700833912 /* FeedControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				D83E27281E83E6E400833912 /* UIView + Anchors.swift */,
 				D83E272E1E83F7F400833912 /* UIColor + rgb.swift */,
+				D83E273C1E8426D700833912 /* FeedControllerDelegate.swift */,
 			);
 			name = "Protocols and Extensions";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				D83E27331E8414F400833912 /* CustomTabBarController.swift in Sources */,
 				D83E27371E84172F00833912 /* RequestHeader.swift in Sources */,
 				D83E27291E83E6E400833912 /* UIView + Anchors.swift in Sources */,
+				D83E273D1E8426D700833912 /* FeedControllerDelegate.swift in Sources */,
 				D83E272D1E83EB5900833912 /* BaseCell.swift in Sources */,
 				D83E273B1E84178C00833912 /* FriendRequestCell.swift in Sources */,
 				D83E27311E84034E00833912 /* Post.swift in Sources */,

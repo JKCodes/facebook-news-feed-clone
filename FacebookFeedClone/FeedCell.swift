@@ -17,6 +17,13 @@ class FeedCell: BaseCell {
     private let dividerHeight: CGFloat = 0.5
     private let likeButtonHeight: CGFloat = 44
     
+    weak var delegate: FeedControllerDelegate?
+    
+    func animate() {
+        delegate?.animateImageView(statusImageView: statusImageView)
+    }
+    
+    
     var post: Post? {
         didSet {
             
@@ -86,6 +93,7 @@ class FeedCell: BaseCell {
         imageView.image = UIImage(named: "zuckdog")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -117,6 +125,7 @@ class FeedCell: BaseCell {
         return button
     }
     
+    
     override func setupViews() {
         backgroundColor = .white
         
@@ -129,6 +138,8 @@ class FeedCell: BaseCell {
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)
+        
+        statusImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
         
         nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: nil, topConstant: contentOffset * 1.5, leftConstant: contentOffset, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         profileImageView.anchor(top: nameLabel.topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: contentOffset, bottomConstant: 0, rightConstant: 0, widthConstant: profileImageLength, heightConstant: profileImageLength)
