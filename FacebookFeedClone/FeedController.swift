@@ -11,7 +11,7 @@ import UIKit
 class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private let cellId = "cellId"
-    private let cellHeight: CGFloat = 300
+    private let cellHeight: CGFloat = 400
     
     override func viewDidLoad() {
         super.viewDidLoad()

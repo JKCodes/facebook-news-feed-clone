@@ -14,6 +14,7 @@
 		D83E27291E83E6E400833912 /* UIView + Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27281E83E6E400833912 /* UIView + Anchors.swift */; };
 		D83E272B1E83EB3B00833912 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E272A1E83EB3B00833912 /* FeedCell.swift */; };
 		D83E272D1E83EB5900833912 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E272C1E83EB5900833912 /* BaseCell.swift */; };
+		D83E272F1E83F7F400833912 /* UIColor + rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E272E1E83F7F400833912 /* UIColor + rgb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D83E27281E83E6E400833912 /* UIView + Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Anchors.swift"; sourceTree = "<group>"; };
 		D83E272A1E83EB3B00833912 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D83E272C1E83EB5900833912 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		D83E272E1E83F7F400833912 /* UIColor + rgb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + rgb.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				D83E27281E83E6E400833912 /* UIView + Anchors.swift */,
+				D83E272E1E83F7F400833912 /* UIColor + rgb.swift */,
 			);
 			name = "Protocols and Extensions";
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83E27151E83E49500833912 /* FeedController.swift in Sources */,
+				D83E272F1E83F7F400833912 /* UIColor + rgb.swift in Sources */,
 				D83E272B1E83EB3B00833912 /* FeedCell.swift in Sources */,
 				D83E27291E83E6E400833912 /* UIView + Anchors.swift in Sources */,
 				D83E272D1E83EB5900833912 /* BaseCell.swift in Sources */,
@@ -334,6 +338,7 @@
 				D83E27231E83E49600833912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
