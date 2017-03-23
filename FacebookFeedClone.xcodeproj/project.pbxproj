@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		D83E27131E83E49500833912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27121E83E49500833912 /* AppDelegate.swift */; };
-		D83E27151E83E49500833912 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27141E83E49500833912 /* ViewController.swift */; };
-		D83E27181E83E49600833912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83E27161E83E49600833912 /* Main.storyboard */; };
+		D83E27151E83E49500833912 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27141E83E49500833912 /* FeedController.swift */; };
 		D83E271A1E83E49600833912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83E27191E83E49600833912 /* Assets.xcassets */; };
 		D83E271D1E83E49600833912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83E271B1E83E49600833912 /* LaunchScreen.storyboard */; };
+		D83E27291E83E6E400833912 /* UIView + Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E27281E83E6E400833912 /* UIView + Anchors.swift */; };
+		D83E272B1E83EB3B00833912 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E272A1E83EB3B00833912 /* FeedCell.swift */; };
+		D83E272D1E83EB5900833912 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E272C1E83EB5900833912 /* BaseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D83E270F1E83E49500833912 /* FacebookFeedClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookFeedClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83E27121E83E49500833912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D83E27141E83E49500833912 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D83E27171E83E49600833912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D83E27141E83E49500833912 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		D83E27191E83E49600833912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D83E271C1E83E49600833912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D83E271E1E83E49600833912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83E27281E83E6E400833912 /* UIView + Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Anchors.swift"; sourceTree = "<group>"; };
+		D83E272A1E83EB3B00833912 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		D83E272C1E83EB5900833912 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,48 @@
 		D83E27111E83E49500833912 /* FacebookFeedClone */ = {
 			isa = PBXGroup;
 			children = (
+				D83E27271E83E64B00833912 /* Protocols and Extensions */,
+				D83E27261E83E64600833912 /* Model */,
+				D83E27251E83E64200833912 /* View */,
+				D83E27241E83E63D00833912 /* Controller */,
 				D83E27121E83E49500833912 /* AppDelegate.swift */,
-				D83E27141E83E49500833912 /* ViewController.swift */,
-				D83E27161E83E49600833912 /* Main.storyboard */,
 				D83E27191E83E49600833912 /* Assets.xcassets */,
 				D83E271B1E83E49600833912 /* LaunchScreen.storyboard */,
 				D83E271E1E83E49600833912 /* Info.plist */,
 			);
 			path = FacebookFeedClone;
+			sourceTree = "<group>";
+		};
+		D83E27241E83E63D00833912 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D83E27141E83E49500833912 /* FeedController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D83E27251E83E64200833912 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D83E272A1E83EB3B00833912 /* FeedCell.swift */,
+				D83E272C1E83EB5900833912 /* BaseCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D83E27261E83E64600833912 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D83E27271E83E64B00833912 /* Protocols and Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D83E27281E83E6E400833912 /* UIView + Anchors.swift */,
+			);
+			name = "Protocols and Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +164,6 @@
 			files = (
 				D83E271D1E83E49600833912 /* LaunchScreen.storyboard in Resources */,
 				D83E271A1E83E49600833912 /* Assets.xcassets in Resources */,
-				D83E27181E83E49600833912 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83E27151E83E49500833912 /* ViewController.swift in Sources */,
+				D83E27151E83E49500833912 /* FeedController.swift in Sources */,
+				D83E272B1E83EB3B00833912 /* FeedCell.swift in Sources */,
+				D83E27291E83E6E400833912 /* UIView + Anchors.swift in Sources */,
+				D83E272D1E83EB5900833912 /* BaseCell.swift in Sources */,
 				D83E27131E83E49500833912 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,14 +185,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D83E27161E83E49600833912 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D83E27171E83E49600833912 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D83E271B1E83E49600833912 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
