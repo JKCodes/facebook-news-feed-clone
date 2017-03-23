@@ -12,32 +12,56 @@ class FeedCell: BaseCell {
     
     private let profileImageLength: CGFloat = 44
     private let contentOffset: CGFloat = 8
-    private let statusTextViewHeight: CGFloat = 30
+    private let statusImageViewHeight: CGFloat = 200
     private let likesCommentHeight: CGFloat = 24
     private let dividerHeight: CGFloat = 0.5
     private let likeButtonHeight: CGFloat = 44
+    
+    var post: Post? {
+        didSet {
+            
+            if let name = post?.name {
+                let attributedText = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+                
+                attributedText.append(NSAttributedString(string: "\nDecember 18  •  San Francisco  •  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName:
+                    UIColor.rgb(r: 155, g: 161, b: 171)]))
+                
+                let paragraphStyle = NSMutableParagraphStyle()
+                let range = NSMakeRange(0, attributedText.string.characters.count)
+                paragraphStyle.lineSpacing = 4
+                
+                attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
+                
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(named: "globe_small")
+                attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
+                attributedText.append(NSAttributedString(attachment: attachment))
+                
+                nameLabel.attributedText = attributedText
+            }
+            
+            if let statusText = post?.statusText {
+                statusTextView.text = statusText
+            }
+            
+            if let profileImageName = post?.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            }
+            
+            if let statusImageName = post?.statusImageName {
+                statusImageView.image = UIImage(named: statusImageName)
+            }
+            
+            if let numLikes = post?.numLikes, let numComments = post?.numComments {
+                likesCommentsLabel.text = "\(numLikes) Likes  \(numComments) Comments"
+            }
+        }
+    }
     
     let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         
-        let attributedText = NSMutableAttributedString(string: "Mark Zuckerberg\n", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        
-        attributedText.append(NSAttributedString(string: "December 18  -  San Francisco  -  ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName:
-            UIColor.rgb(r: 155, g: 161, b: 171)]))
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        let range = NSMakeRange(0, attributedText.string.characters.count)
-        paragraphStyle.lineSpacing = 4
-        
-        attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
-        
-        let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: "globe_small")
-        attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
-        attributedText.append(NSAttributedString(attachment: attachment))
-        
-        label.attributedText = attributedText
         return label
     }()
     
@@ -53,6 +77,7 @@ class FeedCell: BaseCell {
         textView.text = "Some random text for the textView"
         textView.font = UIFont.systemFont(ofSize: 14)
         textView.isEditable = false
+        textView.isScrollEnabled = false
         return textView
     }()
     
@@ -107,12 +132,14 @@ class FeedCell: BaseCell {
         
         nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: nil, topConstant: contentOffset * 1.5, leftConstant: contentOffset, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         profileImageView.anchor(top: nameLabel.topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: contentOffset, bottomConstant: 0, rightConstant: 0, widthConstant: profileImageLength, heightConstant: profileImageLength)
-        statusTextView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: contentOffset / 2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: statusTextViewHeight)
-        statusImageView.anchor(top: statusTextView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        statusTextView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: contentOffset / 2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        statusImageView.anchor(top: statusTextView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: statusImageViewHeight)
         likesCommentsLabel.anchor(top: statusImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: contentOffset * 1.5, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: likesCommentHeight)
         dividerLineView.anchor(top: likesCommentsLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: contentOffset, leftConstant: contentOffset * 1.5, bottomConstant: 0, rightConstant: contentOffset * 1.5, widthConstant: 0, heightConstant: dividerHeight)
-        likeButton.anchor(top: dividerLineView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: contentOffset * 1.5, widthConstant: frame.width / 3, heightConstant: likeButtonHeight)
-        commentButton.anchor(top: likeButton.topAnchor, left: likeButton.rightAnchor, bottom: likeButton.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: frame.width / 3, heightConstant: likeButtonHeight)
-        shareButton.anchor(top: likeButton.topAnchor, left: commentButton.rightAnchor, bottom: likeButton.bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: frame.width / 3, heightConstant: likeButtonHeight)
+        likeButton.anchor(top: dividerLineView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: contentOffset * 1.5, widthConstant: 0, heightConstant: likeButtonHeight)
+        commentButton.anchor(top: likeButton.topAnchor, left: likeButton.rightAnchor, bottom: likeButton.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: likeButtonHeight)
+        shareButton.anchor(top: likeButton.topAnchor, left: commentButton.rightAnchor, bottom: likeButton.bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: likeButtonHeight)
+        likeButton.widthAnchor.constraint(equalTo: commentButton.widthAnchor).isActive = true
+        commentButton.widthAnchor.constraint(equalTo: shareButton.widthAnchor).isActive = true
     }
 }
